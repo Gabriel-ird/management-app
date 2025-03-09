@@ -5,7 +5,7 @@ import com.example.management_app.mapper.ObjectMapper;
 import com.example.management_app.persistence.entity.Car;
 import org.springframework.stereotype.Component;
 
-@Component
+@Component("carMapper")
 public class CarMapper implements ObjectMapper<CarDto, Car> {
 
     @Override
@@ -15,6 +15,7 @@ public class CarMapper implements ObjectMapper<CarDto, Car> {
         car.setMake(dto.make());
         car.setModel(dto.model());
         car.setYear(dto.year());
+        car.setPrice(dto.price());
 
         return car;
     }
@@ -25,7 +26,8 @@ public class CarMapper implements ObjectMapper<CarDto, Car> {
                 entity.getId(),
                 entity.getMake(),
                 entity.getModel(),
-                entity.getYear()
+                entity.getYear(),
+                entity.getPrice()
         );
     }
 

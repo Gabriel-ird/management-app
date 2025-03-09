@@ -1,9 +1,6 @@
 package com.example.management_app.persistence.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -17,9 +14,11 @@ public class Car {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
+
     private UUID id;
 
     private String make;
     private String model;
     private int year;
+    private String price;
 }

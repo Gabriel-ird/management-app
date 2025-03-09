@@ -51,4 +51,8 @@ public class CarController {
                 HttpStatus.CREATED
         );
     }
+    @DeleteMapping("/{id}")
+    public void deleteCar(@PathVariable UUID id) {
+        carService.deleteCarById(id);
+    }
 }

@@ -1,5 +1,7 @@
 package com.example.management_app.service;
 
+import com.example.management_app.dto.CarDto;
+import com.example.management_app.mapper.ObjectMapper;
 import com.example.management_app.persistence.entity.Car;
 import com.example.management_app.persistence.repository.CarRepository;
 import org.springframework.stereotype.Service;
@@ -11,6 +13,7 @@ import java.util.UUID;
 public class CarService {
 
     private final CarRepository carRepository;
+
 
     public CarService(CarRepository carRepository) {
         this.carRepository = carRepository;
@@ -26,5 +29,10 @@ public class CarService {
 
     public Car createCar(Car car) {
         return carRepository.save(car);
+    }
+
+    public void deleteCarById(UUID id) {
+
+        carRepository.deleteById(id);
     }
 }
