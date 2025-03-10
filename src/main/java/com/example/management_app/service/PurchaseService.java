@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 @Service
 public class PurchaseService {
@@ -21,11 +22,15 @@ public class PurchaseService {
     private final ClientRepository clientRepository;
     private final CarRepository carRepository;
 
-    public PurchaseService(PurchaseRepository purchaseRepository, ClientRepository clientRepository, CarRepository carRepository) {
+    public PurchaseService(PurchaseRepository purchaseRepository,
+                           ClientRepository clientRepository,
+                           CarRepository carRepository
+    ) {
         this.purchaseRepository = purchaseRepository;
         this.clientRepository = clientRepository;
         this.carRepository = carRepository;
     }
+
     @Transactional
     public Purchase createPurchase(PurchaseDto purchaseDto) {
         Client client = clientRepository.findById(purchaseDto.getClientId())
@@ -40,5 +45,6 @@ public class PurchaseService {
 
         return purchaseRepository.save(purchase);
     }
+
 
 }

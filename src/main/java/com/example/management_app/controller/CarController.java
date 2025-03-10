@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.UUID;
 
+
 @RestController
 @RequestMapping("/cars")
 public class CarController {
@@ -51,8 +52,10 @@ public class CarController {
                 HttpStatus.CREATED
         );
     }
+
     @DeleteMapping("/{id}")
     public void deleteCar(@PathVariable UUID id) {
         carService.deleteCarById(id);
     }
+
 }

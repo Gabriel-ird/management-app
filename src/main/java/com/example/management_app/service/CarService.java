@@ -20,7 +20,7 @@ public class CarService {
     }
 
     public Car getCarById(UUID id) {
-    return carRepository.findById(id).orElseThrow();
+        return carRepository.findById(id).orElseThrow();
     }
 
     public List<Car> getCar() {
@@ -35,4 +35,6 @@ public class CarService {
 
         carRepository.deleteById(id);
     }
+
+
 }
