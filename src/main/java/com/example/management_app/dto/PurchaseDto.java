@@ -12,4 +12,8 @@ import java.util.UUID;
 public class PurchaseDto {
     private Long clientId;
     private UUID carId;
+
+    public PurchaseDto() {
+
+    }
 }
